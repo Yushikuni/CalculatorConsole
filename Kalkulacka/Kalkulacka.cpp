@@ -53,27 +53,33 @@ int main()
     try
     {
         cin >> prvniCislo;
+        cout << "Zadej Druhe cislo: ";
+        try
+        {
+            cin >> druheCislo;
+
+            try
+            {
+
+                cout << "\nsoucet prvnich dvou cisel je: " << soucetDvouCisel(prvniCislo, druheCislo);
+                cout << "\nrozdil prvnich dvou cisel je: " << rozdilDvouCisel(prvniCislo, druheCislo);
+                cout << "\nnasobek prvnich dvou cisel je: " << nasobekDvouCisel(prvniCislo, druheCislo);
+                if(druheCislo != 0) cout << "\npodil prvnich dvou cisel je: " << podilDvouCisel(prvniCislo, druheCislo);
+            }
+            catch (const std::exception)
+            {
+                cerr << "Error!!!!" << endl;
+            }
+        }
+        catch (const runtime_error& e)
+        {
+            cerr << "Chyba: " << e.what() << endl;
+        }
     }
     catch (const std::exception& e)
     {
         cerr << "Chyba: " << e.what() << endl;
     }
-    
-    cout << "Zadej Druhe cislo: ";
-    try
-    {
-        cin >> druheCislo;
-    }
-    catch (const runtime_error& e)
-    {
-        cerr << "Chyba: " << e.what() << endl;
-    }
-
-    cout << "\nsoucet prvnich dvou cisel je: " << soucetDvouCisel(prvniCislo, druheCislo);
-    cout << "\nrozdil prvnich dvou cisel je: " << rozdilDvouCisel(prvniCislo, druheCislo);
-    cout << "\nnasobek prvnich dvou cisel je: " << nasobekDvouCisel(prvniCislo, druheCislo);
-    cout << "\npodil prvnich dvou cisel je: " << podilDvouCisel(prvniCislo, druheCislo);
-
 }
 
 // Spuštění programu: Ctrl+F5 nebo nabídka Ladit > Spustit bez ladění
